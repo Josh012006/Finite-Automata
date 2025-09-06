@@ -4,16 +4,20 @@ import '@xyflow/react/dist/style.css';
 import ModificationBar from './ModificationBar';
 import Node from './Node';
 import TextNode from './TextNode';
+import DraggableBezierEdge from './Edge';
 
 function App() {
 
     const [nodes, setNodes] = useState([]);
     const [edges, setEdges] = useState([]);
 
-    const nodesTypes = {
+    const nodeTypes = {
         state: Node,
         text: TextNode
     }
+    const edgeTypes = {
+        'draggable-edge': DraggableBezierEdge,
+    };
 
     return (
         <div style={{ display: 'flex', }}>
@@ -24,7 +28,8 @@ function App() {
                 <ReactFlow
                     nodes={nodes}
                     edges={edges}
-                    nodeTypes={nodesTypes}
+                    nodeTypes={nodeTypes}
+                    edgeTypes={edgeTypes}
                     onNodesChange={onNodesChange}
                     onEdgesChange={onEdgesChange}
                     onConnect={onConnect}
