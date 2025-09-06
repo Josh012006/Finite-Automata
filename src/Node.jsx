@@ -1,3 +1,4 @@
+import { Position } from "@xyflow/react";
 import { InlineMath } from "react-katex";
 
 
@@ -18,6 +19,10 @@ function Node({ data }) {
             }}
         >
             <InlineMath errorColor={'#cc0000'}>{data.label}</InlineMath>
+            {data.self && <>
+                <Handle type="target" id="self-in" position={Position.Top} style={{ left: '20%' }} />
+                <Handle type="source" id="self-out" position={Position.Top} style={{ left: '10%' }} />
+            </>}
         </div>
     )
 }
