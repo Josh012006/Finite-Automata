@@ -4,7 +4,7 @@ function ModificationBar() {
 
     return(
        <div>
-
+        Hello
        </div> 
     )
 }

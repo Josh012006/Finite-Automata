@@ -1,3 +1,4 @@
+import { InlineMath } from "react-katex";
 
 
 function Node({ data }) {
@@ -8,15 +9,15 @@ function Node({ data }) {
                 width: data.size || 60,
                 height: data.size || 60,
                 borderRadius: '50%',
-                border: '2px solid black',
+                border: data.final ? '6px solid black' : '2px solid black',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontWeight: 'bold',
-                background: 'white',
+                fontWeight: data.final ? 'bold' : 'normal',
+                background: data.background ?? 'white',
             }}
         >
-            {data.label}
+            <InlineMath errorColor={'#cc0000'}>{data.label}</InlineMath>
         </div>
     )
 }

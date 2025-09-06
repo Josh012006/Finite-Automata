@@ -2,11 +2,18 @@ import { useState } from 'react';
 import { ReactFlow, applyNodeChanges, applyEdgeChanges, addEdge } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import ModificationBar from './ModificationBar';
+import Node from './Node';
+import TextNode from './TextNode';
 
 function App() {
 
     const [nodes, setNodes] = useState([]);
     const [edges, setEdges] = useState([]);
+
+    const nodesTypes = {
+        state: Node,
+        text: TextNode
+    }
 
     return (
         <div style={{ display: 'flex', }}>
@@ -17,6 +24,7 @@ function App() {
                 <ReactFlow
                     nodes={nodes}
                     edges={edges}
+                    nodeTypes={nodesTypes}
                     onNodesChange={onNodesChange}
                     onEdgesChange={onEdgesChange}
                     onConnect={onConnect}
